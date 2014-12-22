@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>HTML5 forms</title>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-messages.min.js"></script>
+    <script type="text/javascript" src="js/master.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <br /><br /><br /><br />
+        <div class="row">
+            <div class="col-xs-10 col-offset-1" ng-controller="forma">
+                <form name="myForm" novalidate ng-submit="submit()"> 
+                    <label for="texty">Name</label>
+                    <input type="text" name="texty" ng-model="data.texty" required ng-minlength="2" ng-pattern="/^a/" />
+                    <div ng-if="myForm.$submitted" ng-messages="myForm.texty.$error" ng-messages-multiple>
+                        <span class="error" ng-message="required">Field is required!</span>
+                        <span class="error" ng-message="minlength">Field is too short!!</span>
+                    </div>
+                    <br />
+                    <label for="numby">Age</label>
+                    <input type="number" name="numby" ng-model="data.numby" />
+                    <br />
+                    <br />
+                    <button type="submit" name="button">Submit</button>
+                </form>
+                <pre>{{ myForm.texty.$valid | json }}</pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
