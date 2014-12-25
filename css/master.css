@@ -27,3 +27,11 @@
 body {
   background-color: #FAFAD2;
 }
+
+input.ng-invalid.ng-touched {
+    border-color: #FA787E;
+}
+
+input.ng-valid.ng-touched {
+    border-color: #78FA89;
+  }
