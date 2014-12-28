@@ -27,3 +27,21 @@
 body {
   background-color: #FAFAD2;
 }
+
+.my-form {
+   -webkit-transition:all linear 0.5s;
+   transition:all linear 0.5s;
+   background: transparent;
+ }
+
+.my-form .ng-valid-required {
+  border-color: green;
+}
+
+.my-form .ng-invalid-required {
+  border-color: red;
+}
+
+.my-form .ng-invalid-number {
+  border-color: red;
+}
