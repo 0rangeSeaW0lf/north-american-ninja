@@ -8,9 +8,8 @@
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/master.css" type="text/css" />
-        
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-messages.min.js"></script>
+        <script src="//code.angularjs.org/1.3.8/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.3.8/angular-messages.min.js"></script>
         <script type="text/javascript" src="js/master.js"></script>
     </head>
     <body class="container-fluid">
@@ -23,77 +22,89 @@
                     <div class="col-xs-12">
                         <img src="img/ng-mad-libs-logo.png" alt="logo" class="img-responsive center">
                     </div>
-                    <div class="col-xs-12">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
                         <h1>Automate This!</h1>
                     </div>
                 </div>
             </div>
         <br />
             <div class="row" ng-controller="MadLibs">
-                <div class="row input-user">
-                    <div class="col-xs-10 col-xs-offset-1" ng-show="!myForm.$valid || !myForm.$submitted)">
-                        <div class="row text-center">
-                            <button type='button' class="btn btn-primary" ng-click="changeGender(boy)">Boy</button>
-                            or
-                            <button type='button' class="btn btn-danger"  ng-click="changeGender(girl)">Girl</button>
-                            ?
-                        </div>
-                        <h2>Provide the following words:</h2>
-                        <form name="myForm" novalidate ng-submit="submit()">
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="person_name" ng-model="data.person_name" placeholder="Name" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.person_name.$error.required">A {{ user_input.person_name }} is required!</span>
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="job_title" ng-model="data.job_title" placeholder="Job Title" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.job_title.$error.required">A {{ user_input.job_title }} title is required!</span>
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="tedious_task" ng-model="data.tedious_task" placeholder="Tedious Task" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.tedious_task.$error.required">A {{ user_input.tedious_task }} is required!</span>
-                            </div>
-                           
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="dirty_task" ng-model="data.dirty_task" placeholder="Dirty Task" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.dirty_task.$error.required">A {{ user_input.dirty_task }} is required!</span>
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="celebrity" ng-model="data.celebrity" placeholder="Celebrity" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.celebrity.$error.required">A {{ user_input.celebrity }} is required!</span>
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="useless_skill" ng-model="data.useless_skill" placeholder="Useless Skill" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.useless_skill.$error.required">A {{ user_input.useless_skill }} is required!</span>
-                            </div>
-                            
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="adjective" ng-model="data.adjective" placeholder="Adjective" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.adjective.$error.required">An {{ user_input.adjective }} is required!</span>
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="text" class="form-control" name="obnoxiuous_celebrity" ng-model="data.obnoxiuous_celebrity" placeholder="Obnoxiuous Celebrity" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.obnoxiuous_celebrity.$error.required">A {{ user_input.obnoxiuous_celebrity }} is required!</span>
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                                <input type="number" class="form-control" name="huge_number" ng-model="data.huge_number" placeholder="Huge Number" required />
-                                <span class="error" ng-if="myForm.$submitted && myForm.huge_number.$error.required">A {{ user_input.huge_number }} is required!</span>
-                            </div>
-                            
-                            <br />
-                            <hr>
-                            <button type="submit" class="btn btn-success pull-right">Generate My Mad Lib</button>
-                        </form>
+                <div class="col-xs-10 col-xs-offset-1" ng-show="!(myForm.$submitted && myForm.$valid)">
+                    <div class="row text-center">
+                        <button type='button' class="btn btn-primary" ng-click="changeGender(boy)">Boy</button>
+                        <button type='button' class="btn btn-danger"  ng-click="changeGender(girl)">Girl</button>
+                    </div>
+                    <h2>Provide the following words:</h2>
+                    <div class="row">
                         <br />
+                        <form name='myForm' role="form" class="my-form" ng-submit="submit()" novalidate>
+                            <div class="row text-center">
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="person_name" ng-model="data.person_name" placeholder="Name" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.person_name.$error.required">A name is required!</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="job_title" ng-model="data.job_title"  placeholder="Job Title" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.job_title.$error.required">A job title is required!</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="tedious_task" ng-model="data.tedious_task" placeholder="Tedious Task" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.tedious_task.$error.required">A tedious task is required!</span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row text-center">
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="dirty_task" ng-model="data.dirty_task" placeholder="Dirty Task" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.dirty_task.$error.required">A dirty task is required!</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="celebrity" ng-model="data.celebrity" placeholder="Celebrity" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.celebrity.$error.required">A celebrity name is required!</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="useless_skill" ng-model="data.useless_skill" placeholder="Useless Skill" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.useless_skill.$error.required">A useless skill is required!</span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row text-center">
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="adjective" ng-model="data.adjective" placeholder="Adjective" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.adjective.$error.required">An adjective is required!</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text" name="obnoxiuous_celebrity" ng-model="data.obnoxiuous_celebrity" placeholder="Obnoxiuous Celebrity" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.obnoxiuous_celebrity.$error.required">A name is required!</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="number" name="huge_number" ng-model="data.huge_number" placeholder="Huge Number" required class="form-control" />
+                                    <span class="error" ng-if="myForm.$submitted && myForm.huge_number.$error.required">A number is required!</span>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button class="btn btn-success pull-right">Generate My Mad Lib</button>
+                                </div>
+                            </div>
+                            <br />
+                        </form>
                     </div>
                 </div>
-                <div class="row user-result" ng-show="myForm.$valid && myForm.$submitted">
-                    <div class="col-xs-10 col-xs-offset-1" ng-show="isValid()">
-                        <p class="main-text">{{ data.person_name }} was a {{ data.job_title }} who loved technology. Although {{ gender.pron }} loved parts of {{ gender.pos }} job, {{ gender.pron }} absolutely hated  {{ data.tedious_task }} and {{ data.dirty_task }}. So, {{ data.person_name }} met with {{ gender.pos }} life mentor {{ data.celebrity }} who told {{ gender.obj }} to learn how to {{ data.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ data.useless_skill }} so {{ gender.pron }} studied programming instead. What a great decision! With {{ gender.pos }} new skills, {{ data.person_name }} built a(n) {{ data.adjective }} script named {{ data.obnoxiuous_celebrity }} that not only loved {{ data.dirty_task }} but did it {{ data.huge_number }} times faster. </p>
-                        <br / >
-                        <button type="submit" class="btn btn-danger pull-right">Start Over</button>
+                <div class="col-xs-10 col-xs-offset-1" ng-show="myForm.$submitted && myForm.$valid">
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                                    <p class="main-text">{{ data.person_name }} was a {{ data.job_title }} who loved technology. Although {{ gender.pron }} loved parts of {{ gender.pos }} job, {{ gender.pron }} absolutely hated  {{ data.tedious_task }} and {{ data.dirty_task }}. So, {{ data.person_name }} met with {{ gender.pos }} life mentor {{ data.celebrity }} who told {{ gender.obj }} to learn how to {{ data.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ data.useless_skill }} so {{ gender.pron }} studied programming instead. What a great decision! With {{ gender.pos }} new skills, {{ data.person_name }} built a(n) {{ data.adjective }} script named {{ data.obnoxiuous_celebrity }} that not only loved {{ data.dirty_task }} but did it {{ data.huge_number }} times faster. </p>
+                            <div class="pull-right">
+                                <button class="btn btn-danger" ng-click="reset(myForm)">Start Over</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
+        <br />
     </body>
 </html>
