@@ -28,10 +28,22 @@ body {
   background-color: #FAFAD2;
 }
 
-input.ng-invalid.ng-touched {
-    border-color: #FA787E;
+.my-form {
+   -webkit-transition:all linear 0.5s;
+   -moz-transition:all linear 0.5s;
+   -o-transition:all linear 0.5s;
+   transition:all linear 0.5s;
+   background: transparent;
+ }
+
+.my-form .ng-valid-required {
+  border-color: green;
 }
 
-input.ng-valid.ng-touched {
-    border-color: #78FA89;
-  }
+.my-form .ng-invalid-required {
+  border-color: red;
+}
+
+.my-form .ng-invalid-number {
+  border-color: red;
+}
