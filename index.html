@@ -31,10 +31,12 @@
         <br />
             <div class="row" ng-controller="MadLibs">
                 <div class="row input-user">
-                    <div class="col-xs-10 col-xs-offset-1" ng-hide="myForm.$valid && myForm.$submitted">
+                    <div class="col-xs-10 col-xs-offset-1" ng-show="!myForm.$valid || !myForm.$submitted)">
                         <div class="row text-center">
                             <button type='button' class="btn btn-primary" ng-click="changeGender(boy)">Boy</button>
+                            or
                             <button type='button' class="btn btn-danger"  ng-click="changeGender(girl)">Girl</button>
+                            ?
                         </div>
                         <h2>Provide the following words:</h2>
                         <form name="myForm" novalidate ng-submit="submit()">
@@ -84,9 +86,11 @@
                         <br />
                     </div>
                 </div>
-                <div class="row user-result">
-                    <div class="col-xs-10 col-xs-offset-1" ng-show="myForm.$valid && myForm.$submitted">
-                                <p class="main-text">{{ data.person_name }} was a {{ data.job_title }} who loved technology. Although {{ gender.pron }} loved parts of {{ gender.pos }} job, {{ gender.pron }} absolutely hated  {{ data.tedious_task }} and {{ data.dirty_task }}. So, {{ data.person_name }} met with {{ gender.pos }} life mentor {{ data.celebrity }} who told {{ gender.obj }} to learn how to {{ data.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ data.useless_skill }} so {{ gender.pron }} studied programming instead. What a great decision! With {{ gender.pos }} new skills, {{ data.person_name }} built a(n) {{ data.adjective }} script named {{ data.obnoxiuous_celebrity }} that not only loved {{ data.dirty_task }} but did it {{ data.huge_number }} times faster. </p>
+                <div class="row user-result" ng-show="myForm.$valid && myForm.$submitted">
+                    <div class="col-xs-10 col-xs-offset-1" ng-show="isValid()">
+                        <p class="main-text">{{ data.person_name }} was a {{ data.job_title }} who loved technology. Although {{ gender.pron }} loved parts of {{ gender.pos }} job, {{ gender.pron }} absolutely hated  {{ data.tedious_task }} and {{ data.dirty_task }}. So, {{ data.person_name }} met with {{ gender.pos }} life mentor {{ data.celebrity }} who told {{ gender.obj }} to learn how to {{ data.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ data.useless_skill }} so {{ gender.pron }} studied programming instead. What a great decision! With {{ gender.pos }} new skills, {{ data.person_name }} built a(n) {{ data.adjective }} script named {{ data.obnoxiuous_celebrity }} that not only loved {{ data.dirty_task }} but did it {{ data.huge_number }} times faster. </p>
+                        <br / >
+                        <button type="submit" class="btn btn-danger pull-right">Start Over</button>
                     </div>
                 </div>
             </div>
