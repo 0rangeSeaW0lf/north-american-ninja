@@ -36,14 +36,56 @@ body {
    background: transparent;
  }
 
-.my-form .ng-valid-required {
+.ng-valid-required {
   border-color: green;
 }
 
-.my-form .ng-invalid-required {
+.ng-invalid-required {
   border-color: red;
 }
 
-.my-form .ng-invalid-number {
+.ng-invalid-number {
   border-color: red;
+}
+
+.show-text.ng-leave, .show-input.ng-leave {
+   -webkit-animation: 1s one-to-zero-text;
+   -moz-animation: 1s one-to-zero-text;
+   animation: 1s one-to-zero-text;
+}
+ 
+@keyframes one-to-zero-text {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+ 
+@-webkit-keyframes one-to-zero-text {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@-moz-keyframes one-to-zero-text {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.show-text.ng-enter, .show-input.ng-enter{
+   -webkit-animation: 1s zero-to-one-text 1s;
+   -moz-animation: 1s zero-to-one-text 1s;
+   animation: 1s zero-to-one-text 1s;
+}
+ 
+@keyframes zero-to-one-text {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+ 
+@-webkit-keyframes zero-to-one-text {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@-moz-keyframes zero-to-one-text {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }

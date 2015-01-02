@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/master.css" type="text/css" />
         <script src="//code.angularjs.org/1.3.8/angular.min.js"></script>
-        <script src="//code.angularjs.org/1.3.8/angular-messages.min.js"></script>
+        <script src="//code.angularjs.org/1.3.8/angular-animate.min.js"></script>
         <script type="text/javascript" src="js/master.js"></script>
     </head>
     <body class="container-fluid">
@@ -31,7 +31,7 @@
             </div>
         <br />
             <div class="row" ng-controller="MadLibs">
-                <div class="col-xs-10 col-xs-offset-1" ng-show="!(myForm.$submitted && myForm.$valid)">
+                <div class="col-xs-10 col-xs-offset-1 show-input" ng-if="!showInput">
                     <div class="row text-center">
                         <button type='button' class="btn btn-primary" ng-click="changeGender(boy)">Boy</button>
                         <button type='button' class="btn btn-danger"  ng-click="changeGender(girl)">Girl</button>
@@ -87,19 +87,19 @@
                             <hr />
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-success pull-right">Generate My Mad Lib</button>
+                                    <button class="btn btn-success pull-right" ng-click="changeStatus()">Generate My Mad Lib</button>
                                 </div>
                             </div>
                             <br />
                         </form>
                     </div>
                 </div>
-                <div class="col-xs-10 col-xs-offset-1" ng-show="myForm.$submitted && myForm.$valid">
+                <div class="col-xs-10 col-xs-offset-1 show-text" ng-if="showText">
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1">
                                     <p class="main-text">{{ data.person_name }} was a {{ data.job_title }} who loved technology. Although {{ gender.pron }} loved parts of {{ gender.pos }} job, {{ gender.pron }} absolutely hated  {{ data.tedious_task }} and {{ data.dirty_task }}. So, {{ data.person_name }} met with {{ gender.pos }} life mentor {{ data.celebrity }} who told {{ gender.obj }} to learn how to {{ data.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ data.useless_skill }} so {{ gender.pron }} studied programming instead. What a great decision! With {{ gender.pos }} new skills, {{ data.person_name }} built a(n) {{ data.adjective }} script named {{ data.obnoxiuous_celebrity }} that not only loved {{ data.dirty_task }} but did it {{ data.huge_number }} times faster. </p>
                             <div class="pull-right">
-                                <button class="btn btn-danger" ng-click="reset(myForm)">Start Over</button>
+                                <button class="btn btn-danger" ng-click="reset()">Start Over</button>
                             </div>
                         </div>
                     </div>
