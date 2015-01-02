@@ -39,7 +39,7 @@
                     <h2>Provide the following words:</h2>
                     <div class="row">
                         <br />
-                        <form name='myForm' role="form" class="my-form" ng-submit="submit()" novalidate>
+                        <form name='myForm' role="form" class="my-form" ng-submit="changeStatus()" novalidate>
                             <div class="row text-center">
                                 <div class="col-xs-12 col-sm-4">
                                     <input type="text" name="person_name" ng-model="data.person_name" placeholder="Name" required class="form-control" />
@@ -87,7 +87,7 @@
                             <hr />
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-success pull-right" ng-click="changeStatus()">Generate My Mad Lib</button>
+                                    <button class="btn btn-success pull-right">Generate My Mad Lib</button>
                                 </div>
                             </div>
                             <br />
