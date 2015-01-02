@@ -19,6 +19,7 @@
   padding: 10px;
   margin-top: 60px;
   margin-bottom: 30px;
+  height: 1000px;
 }
 .booyah-box h1, .booyah-box h2 {
   margin: 10px;
@@ -48,44 +49,71 @@ body {
   border-color: red;
 }
 
-.show-text.ng-leave, .show-input.ng-leave {
-   -webkit-animation: 1s one-to-zero-text;
-   -moz-animation: 1s one-to-zero-text;
-   animation: 1s one-to-zero-text;
-}
- 
-@keyframes one-to-zero-text {
-	from { opacity: 0; }
-	to { opacity: 1; }
-}
- 
-@-webkit-keyframes one-to-zero-text {
-	from { opacity: 0; }
-	to { opacity: 1; }
-}
-
-@-moz-keyframes one-to-zero-text {
-	from { opacity: 0; }
-	to { opacity: 1; }
-}
-
 .show-text.ng-enter, .show-input.ng-enter{
-   -webkit-animation: 1s zero-to-one-text 1s;
-   -moz-animation: 1s zero-to-one-text 1s;
-   animation: 1s zero-to-one-text 1s;
+   -webkit-animation: 1s zero-to-one-text;
+   -moz-animation: 1s zero-to-one-text;
+   animation: 1s zero-to-one-text;
+   position: absolute;
+   background-color: white;
 }
  
 @keyframes zero-to-one-text {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from { 
+	  opacity: 0; 
+	  top: 600px;
+	}
+	to { 
+	  opacity: 1; 
+	  top: 220px;
+	}
 }
  
 @-webkit-keyframes zero-to-one-text {
+	from { 
+	  opacity: 0; 
+	  top: 600px;
+	}
+	to { 
+	  opacity: 1; 
+	  top: 220px;
+	}
+}
+
+@-moz-keyframes zero-to-one-text {
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
 
-@-moz-keyframes zero-to-one-text {
+.show-text.ng-leave, .show-input.ng-leave {
+  -webkit-animation: 1s one-to-zero-text;
+  -moz-animation: 1s one-to-zero-text;
+  animation: 1s one-to-zero-text;
+  position: absolute;
+}
+ 
+@keyframes one-to-zero-text {
+	from { 
+	  opacity: 0; 
+	  top: 220px;
+	}
+	to { 
+	  opacity: 1; 
+	  top: 1600px;
+	}
+}
+ 
+@-webkit-keyframes one-to-zero-text {
+	from { 
+	  opacity: 0; 
+	  top: 220px;
+	}
+	to { 
+	  opacity: 1; 
+	  top: 1600px;
+	}
+}
+
+@-moz-keyframes one-to-zero-text {
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
